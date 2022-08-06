@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand">
+            <h5 class="display-5">Casa C-1101</h5>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a routerLink="/user" class="nav-link" routerLinkActive="active">Users</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/adduser" class="nav-link" routerLinkActive="active">Add Users</a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/table" class="nav-link" routerLinkActive="active">table</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-info">Welcome,</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-warning"><i>{{loggedinUser}}</i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-info"></a>
+                </li>
+            </ul>
+        </div>
+
+        <span class="navbar-text">
+            <!-- (click)="onLogout()"  -->
+            <a (click)="onLogout()">
+                <button type="submit"class="btn btn-outline-light" >Logout</button>
+            </a>
+        </span>
+    </div>
+</nav>

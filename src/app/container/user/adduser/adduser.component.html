@@ -1,0 +1,142 @@
+<app-container></app-container>
+<div class="container mt-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="display-5">Add User</h2>
+                    </div>
+                    <div class="card-body">
+                        <div class="justify-content-center">
+
+                            <form [formGroup]="form" (ngSubmit)="submit()">
+   
+                                <div class="form-group">
+                                    <label for="first_name">first_name:</label>
+                                    <input
+                                        formControlName="first_name"
+                                        id="first_name"
+                                        type="text"
+                                        class="form-control">
+                                    <div *ngIf="f['first_name'].touched && f['first_name'].invalid" class="alert alert-danger">
+                                        <div *ngIf="f['first_name'].errors && f['first_name'].errors['required']">Title is required.</div>
+                                    </div>
+                                </div>
+                           
+                                <div class="form-group">
+                                    <label for="last_name">last_name</label>
+                                    <input
+                                        formControlName="last_name"
+                                        id="last_name"
+                                        type="text"
+                                        class="form-control">
+                                    <div *ngIf="f['last_name'].touched && f['last_name'].invalid" class="alert alert-danger">
+                                        <div *ngIf="f['last_name'].errors && f['last_name'].errors['required']">last_name is required.</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" formControlName="email" id="email" class="form-control">
+                                    <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+                                        <div *ngIf="f['email'].errors && f['email'].errors['required']">email is required.</div>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="form-group">
+                                    <label for="avatar" class="col-md-4 col-form-label">Avatar</label>
+                                    <div class="col-auto">
+                                        <input type="file" class="form-control" placeholder="">
+                                        <div *ngIf="f['avatar'].touched && f['avatar'].invalid" class="alert alert-danger">
+                                            <div *ngIf="f['avatar'].errors && f['avatar'].errors['required']">avatar is required.</div>
+                                        </div>
+                                    </div>
+                                </div> <br> -->
+
+                                <div class="form-group">
+                                    <label for="avatar" class="col-md-4 col-form-label">Avatar</label>
+                                    <div class="col-auto">
+                                        <input type="text" formControlName="avatar" id="avatar" class="form-control" placeholder="link">
+                                        <div *ngIf="f['avatar'].touched && f['avatar'].invalid" class="alert alert-danger">
+                                            <div *ngIf="f['avatar'].errors && f['avatar'].errors['required']">avatar is required.</div>
+                                        </div>
+                                    </div>
+                                </div> <br>
+                           
+                                <button class="btn btn-primary" type="submit">Submit</button> &nbsp; &nbsp;
+                                <button class="btn btn-dark" type="button" routerLink="/user"> Back </button>
+                            </form>
+
+                            <!-- <form #userForm="ngForm" (ngSubmit)="addUser(userForm.value)">
+                                <div class="form-group row">
+                                    <label for="id" class="col-md-4 col-form-label">User ID</label>
+                                    <div class="col-auto">
+                                        <i> <input #userID type="text" class="form-control" name="userID" id="userID"
+                                                ngModel id="userID" required ngModel name="userID" autocomplete="userID"
+                                                autofocus placeholder=""></i>
+                                         <strong
+                                            *ngIf="userForm.controls['userID'].invalid && (userForm.controls['userID'].dirty || userForm.controls['userID'].touched)"
+                                            class="form-text text-danger">Please enter Id </strong>
+                                    </div>
+                                </div> <br>
+
+                                <div class="form-group row">
+                                    <label for="first_name" class="col-md-4 col-form-label">First
+                                        Name</label>
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" name="fname" ngModel id="fname" required
+                                            ngModel name="fname" autocomplete="fname" placeholder=" ">
+                                        <strong
+                                            *ngIf="userForm.controls['fname'].invalid && (userForm.controls['fname'].dirty || userForm.controls['fname'].touched)"
+                                            class="form-text text-danger">Please enter First name </strong>
+
+                                    </div>
+                                </div> <br>
+                                <div class="form-group row">
+                                    <label for="last_name" class="col-md-4 col-form-label">Last
+                                        Name</label>
+                                    <div class="col-auto">
+                                        <input type="text" class="form-control" name="lname" required ngModel
+                                            name="lname" autocomplete="lname" ngModel id="lname" placeholder="">
+                                         <strong
+                                            *ngIf="userForm.controls['lname'].invalid && (userForm.controls['lname'].dirty || userForm.controls['lname'].touched)"
+                                            class="form-text text-danger">Please enter last name </strong>
+                                    </div>
+                                </div> <br>
+                                <div class="form-group row">
+                                    <label for="email" class="col-md-4 col-form-label ">E-mail</label>
+                                    <div class="col-auto">
+                                        <input type="email" class="form-control" name="email" ngModel id="email"
+                                            required ngModel name="email" autocomplete="email" placeholder="" required>
+                                         <strong
+                                            *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
+                                            class="form-text text-danger">Please enter valid email</strong><br>
+                                    </div>
+                                </div> <br>
+                                <div class="form-group row">
+                                    <label for="avatar" class="col-md-4 col-form-label">Avatar</label>
+                                    <div class="col-auto">
+                                        <input type="file" class="form-control" placeholder="">
+                                    </div>
+                                </div> <br>
+
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <button type="submit" id="adds" class="btn btn-info"
+                                                    (click)="userForm.reset()" [disabled]="!userForm.valid">ADD
+                                                    User</button>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div> <br>
+                            </form> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <app-footer></app-footer>

@@ -1,0 +1,53 @@
+<div class="card mb-2 ">
+    <div class="card-header">
+        <h5 class="card-title">Live Chat</h5>
+    </div>
+    <div class="card-body">
+        <div class="container-fluid border" *ngIf="messages.length > 0">
+            <div class="container-fluid border" *ngFor="let message of messages">
+                <!-- [ngClass]="{'self': message.email == user , 'other': message.email != user }" -->
+                    <!-- <div class="user">.{{ message.userId }}.<span class="range admin">
+                            <div class="col-md-12 d-flex justify-content-start border-dark border border-1">
+                               .. {{ message.message.email }}
+                            </div>
+                        </span>
+                    </div> -->
+                    <!-- style="border-bottom-right-radius: 20%;width: auto;float: left;"
+                    style="border-bottom-left-radius: 20%;width: auto;float: right;" -->
+                    <div *ngIf="message.email!=currentUser"
+                        class="col-md-10 rounded bg-danger text-white border border-2">
+                        <b>{{message.email}} </b>
+                        <p> {{ message.message }} </p>
+                    </div>
+                    <div *ngIf="message.email===currentUser" 
+                        class="col-10 rounded bg-success text-white float-end d-flex flex-row-reverse border">
+                        <p class=" p-2 bd-highlight "> {{ message.message }} </p> <br>
+                        <!-- <div *ngIf="message.email===currentUser" >
+                            ~{{message.email}}
+                            {{ message.time }}
+                        </div> -->
+                    </div>
+                    <div class="col justify-content-end">
+                        <i><small>~{{message.email}} &nbsp; <time>{{ message.time }}</time></small></i>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="typezone">
+            <form>
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" #msgInput placeholder="Say something">
+                    </div>
+                    <div class="col-md-2">
+                        <button (click)="sendMessage(msgInput.value)" class="send btn btn-primary"> Send</button>
+                    </div>
+
+                </div>
+            </form>
+
+            <div class="emojis"></div>
+        </div>
+    </div>
+</div>

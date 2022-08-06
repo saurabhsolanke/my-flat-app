@@ -1,0 +1,84 @@
+<app-container></app-container>
+
+<div class="container mt-4">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="display-5">Edit User</h2>
+                    </div>
+                    <div class="card-body">
+                        <form #userForm="ngForm" (ngsubmit)="editUser1(id, userForm.value)">
+                            <div class="form-group row">
+
+                                <label for="id" class="col-md-4 col-form-label text-md-right">User ID</label>
+                                <div class="col-md-6">
+                                    <input #userID type="text" class="form-control" name="userID" id="userID"  [(ngModel)]="id"
+                                        placeholder="User ID">
+                                    <!-- <strong
+                                        *ngIf="userForm.controls['userID'].invalid && (userForm.controls['userID'].dirty || userForm.controls['userID'].touched)"
+                                        class="form-text text-danger">Please enter Id </strong> -->
+                                </div>
+                            </div> <br>
+
+                            <div class="form-group row">
+                                <label for="first_name" class="col-md-4 col-form-label text-md-right">First
+                                    Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="first_name" ngModel id="first_name"
+                                        placeholder="first Name">
+                                    <!-- <strong
+                                        *ngIf="userForm.controls['first_name'].invalid && (userForm.controls['first_name'].dirty || userForm.controls['fname'].touched)"
+                                        class="form-text text-danger">Please enter First name </strong> -->
+                                </div>
+                            </div> <br>
+                            <div class="form-group row">
+                                <label for="last_name" class="col-md-4 col-form-label text-md-right">Last
+                                    Name</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name="last_name" ngModel id="last_name"
+                                        placeholder="Last NAME">
+                                    <!-- <strong
+                                        *ngIf="userForm.controls['last_name'].invalid && (userForm.controls['last_name'].dirty || userForm.controls['lname'].touched)"
+                                        class="form-text text-danger">Please enter last name </strong> -->
+                                </div>
+                            </div> <br>
+
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-right">E-mail</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name="email" ngModel id="email"
+                                        placeholder="email" required>
+                                    <!-- <strong
+                                        *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)"
+                                        class="form-text text-danger">Please enter valid email</strong><br> -->
+                                </div>
+                            </div> <br>
+
+                            <div class="form-group row">
+                                <label for="avatar"
+                                    class="col-md-4 col-form-label text-md-right">Avatar</label>
+                                <div class="col-md-6">
+                                    <input type="file" placeholder="">
+                                </div>
+                            </div> <br>
+
+                            <div class="form-group row">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <button type="submit" class="btn btn-success" id="edits"
+                                                [disabled]="!userForm.valid">EDIT User</button>
+                                            &nbsp; &nbsp;
+                                            <button class="btn btn-dark" type="button" routerLink="/user"> Back
+                                            </button>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div> <br>
+                        </form>
+                    </div>
+                </div>
+
+                <app-footer></app-footer>
